@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package applicant;
+
+service ApplicantService {
+  rpc GetApplicant(GetApplicantRequest) returns (ApplicantResponse);
+  rpc CreateApplicant(CreateApplicantRequest) returns (ApplicantResponse);
+  rpc UpdateApplicant(UpdateApplicantRequest) returns (ApplicantResponse);
+  rpc DeleteApplicant(DeleteApplicantRequest) returns (ApplicantResponse);
+}
+
+message GetApplicantRequest {
+  string id = 1;
+}
+
+message CreateApplicantRequest {
+  string name = 1;
+  string resume = 2;
+}
+
+message UpdateApplicantRequest {
+  string id = 1;
+  string name = 2;
+  string resume = 3;
+}
+
+message DeleteApplicantRequest {
+  string id = 1;
+}
+
+message ApplicantResponse {
+  string id = 1;
+  string name = 2;
+  string resume = 3;
+}

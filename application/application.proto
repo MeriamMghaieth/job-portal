@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package application;
+
+service ApplicationService {
+  rpc GetApplication(GetApplicationRequest) returns (ApplicationResponse);
+  rpc CreateApplication(CreateApplicationRequest) returns (ApplicationResponse);
+  rpc UpdateApplication(UpdateApplicationRequest) returns (ApplicationResponse);
+  rpc DeleteApplication(DeleteApplicationRequest) returns (ApplicationResponse);
+}
+
+message GetApplicationRequest {
+  string id = 1;
+}
+
+message CreateApplicationRequest {
+  string jobId = 1;
+  string applicantId = 2;
+  string status = 3;
+}
+
+message UpdateApplicationRequest {
+  string id = 1;
+  string jobId = 2;
+  string applicantId = 3;
+  string status = 4;
+}
+
+message DeleteApplicationRequest {
+  string id = 1;
+}
+
+message ApplicationResponse {
+  string id = 1;
+  string jobId = 2;
+  string applicantId = 3;
+  string status = 4;
+}
